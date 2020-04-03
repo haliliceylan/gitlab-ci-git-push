@@ -19,6 +19,6 @@ if [[ $url =~ ^ssh://[^/]+:([0-9]+) ]]; then
         ssh_port="-p ${BASH_REMATCH[1]}"
 fi
 
-./git-scan $url
+git-scan $url
 
 git push $url ${CI_COMMIT_SHA:-HEAD}:refs/heads/${branch:-master} $([ -z "$DISABLE_FORCE_PUSH" ] && echo --force)
